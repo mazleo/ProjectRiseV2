@@ -9,5 +9,7 @@ namespace ProjectRise.Debug.External
         internal GameObject Create();
 
         internal String GetUiObjectFactoryType();
+
+        internal void Update(GameObject uiElementRoot);
     }
 }
