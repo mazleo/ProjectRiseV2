@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Zenject;
 
 namespace ProjectRise.Debug.Mode
 {
@@ -7,6 +8,7 @@ namespace ProjectRise.Debug.Mode
     {
         private readonly List<DebugMode> _debugModes = new List<DebugMode>();
 
+        [Inject]
         internal DebugModeState() { }
 
         internal bool IsEnabled(DebugMode mode)
