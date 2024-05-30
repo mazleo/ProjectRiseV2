@@ -1,0 +1,16 @@
+{
+    "name": "Scenes",
+    "rootNamespace": "",
+    "references": [
+        "GUID:914d529ceeb574d66adfc6fca4d9372d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
