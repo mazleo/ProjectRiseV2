@@ -6,10 +6,10 @@ namespace ProjectRise.Debug.External
     /** Factory that creates UI elements from models. */
     public interface IDebugUiObjectFactory
     {
-        internal GameObject Create();
+        public GameObject Create();
 
-        internal String GetUiObjectFactoryType();
+        public String GetUiObjectFactoryType();
 
-        internal void Update(GameObject uiElementRoot);
+        public void Update();
     }
 }

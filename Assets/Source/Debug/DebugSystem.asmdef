@@ -1,8 +1,8 @@
 {
-    "name": "DebugExternal",
+    "name": "DebugSystem",
     "rootNamespace": "ProjectRise",
     "references": [
-        "GUID:364471aa44ae04eeeb1f222da29c4445"
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

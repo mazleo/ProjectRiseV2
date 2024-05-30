@@ -8,6 +8,7 @@ namespace ProjectRise.Debug.External
         [Inject]
         public DebugSystem() { }
 
+        [Inject]
         public void Initialize() { }
     }
 }

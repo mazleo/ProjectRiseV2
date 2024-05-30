@@ -1,7 +1,10 @@
 {
-    "name": "DebugInternal",
+    "name": "PRApplication",
     "rootNamespace": "ProjectRise",
-    "references": [],
+    "references": [
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:de0a929804e324367b92be5e1fc3c3ce"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
