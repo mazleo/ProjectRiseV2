@@ -2,13 +2,27 @@ using Zenject;
 
 namespace ProjectRise.Debug.External
 {
-    /** Facade for the debugging system. */
-    public class DebugSystem : IInitializable
+    /// <summary>
+    /// Facade for the debugging system.
+    /// </summary>
+    public class DebugSystem
     {
-        [Inject]
-        public DebugSystem() { }
+        private DebugOverlayManager _debugOverlayManager;
 
         [Inject]
-        public void Initialize() { }
+        DebugSystem(DebugOverlayManager debugOverlayManager)
+        {
+            _debugOverlayManager = debugOverlayManager;
+        }
+
+        /// <summary>
+        /// Exposes the registering of debug modes into the manager.
+        /// </summary>
+        /// <param name="debugMode">The debug mode.</param>
+        /// <param name="uiFactory">The factory for UI elements.</param>
+        public void RegisterMode(DebugMode debugMode, IDebugUiFactory uiFactory)
+        {
+            _debugOverlayManager.RegisterMode(debugMode, uiFactory);
+        }
     }
 }
