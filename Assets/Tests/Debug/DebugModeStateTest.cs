@@ -1,44 +1,70 @@
-
 using NUnit.Framework;
-using ProjectRise.Debug.Mode;
+using ProjectRise.Debug;
+using ProjectRise.Debug.External;
 
-namespace ProjectRise
+namespace ProjectRise.Test.Debug
 {
+    /// <summary>
+    /// Test cases for DebugModeState.
+    /// </summary>
     public class DebugModeStateTest
     {
-        [Test]
-        public void Enable()
+        private DebugModeState _debugModeState;
+
+        [SetUp]
+        public void Setup()
         {
-            DebugModeState debugModeState = new DebugModeState();
-            
-            debugModeState.Enable(DebugMode.ScreenOverlay);
-            
-            Assert.That(debugModeState.IsEnabled(DebugMode.ScreenOverlay), Is.True);
-            Assert.That(debugModeState.IsEnabled(DebugMode.ScreenOverlayFocused), Is.False);
+            _debugModeState = new DebugModeState();
         }
         
         [Test]
-        public void IsEnabled()
+        public void RegisterMode()
         {
-            DebugModeState debugModeState = new DebugModeState();
+            DebugMode sampleDebugMode = new DebugMode("id", "name", true);
+            Assert.That(_debugModeState.GetAll().Count, Is.EqualTo(0));
             
-            debugModeState.Enable(DebugMode.ScreenOverlayFocused);
+            _debugModeState.RegisterMode(sampleDebugMode);
             
-            Assert.That(debugModeState.IsEnabled(DebugMode.ScreenOverlay), Is.False);
-            Assert.That(debugModeState.IsEnabled(DebugMode.ScreenOverlayFocused), Is.True);
+            Assert.That(_debugModeState.GetAll().Count, Is.EqualTo(1));
+            Assert.That(_debugModeState.ContainsMode(sampleDebugMode.Id), Is.True);
         }
         
         [Test]
-        public void Disable()
+        public void DeregisterAll()
         {
-            DebugModeState debugModeState = new DebugModeState();
-            debugModeState.Enable(DebugMode.ScreenOverlay);
-            debugModeState.Enable(DebugMode.ScreenOverlayFocused);
+            _debugModeState.RegisterMode(new DebugMode("id1", "name1", true));
+            _debugModeState.RegisterMode(new DebugMode("id2", "name2", false));
+            Assert.That(_debugModeState.GetAll().Count, Is.EqualTo(2));
             
-            debugModeState.Disable(DebugMode.ScreenOverlay);
+            _debugModeState.DeregisterAll();
             
-            Assert.That(debugModeState.IsEnabled(DebugMode.ScreenOverlay), Is.False);
-            Assert.That(debugModeState.IsEnabled(DebugMode.ScreenOverlayFocused), Is.True);
+            Assert.That(_debugModeState.GetAll().Count, Is.EqualTo(0));
+        }
+        
+        [Test]
+        public void GetAll()
+        {
+            Assert.That(_debugModeState.GetAll().Count, Is.EqualTo(0));
+            _debugModeState.RegisterMode(new DebugMode("id1", "name1", true));
+            _debugModeState.RegisterMode(new DebugMode("id2", "name2", false));
+            _debugModeState.RegisterMode(new DebugMode("id3", "name3", false));
+            
+            Assert.That(_debugModeState.GetAll().Count, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void ContainsMode()
+        {
+            string id1_true = "id1";
+            string id2_false = "id2";
+            string id3_true = "id3";
+            
+            _debugModeState.RegisterMode(new DebugMode(id1_true, "name1", true));
+            _debugModeState.RegisterMode(new DebugMode(id3_true, "name3", false));
+            
+            Assert.That(_debugModeState.ContainsMode(id1_true), Is.True);
+            Assert.That(_debugModeState.ContainsMode(id2_false), Is.False);
+            Assert.That(_debugModeState.ContainsMode(id3_true), Is.True);
         }
     }
 }
