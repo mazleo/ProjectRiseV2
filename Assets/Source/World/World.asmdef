@@ -1,9 +1,7 @@
 {
-    "name": "Scenes",
-    "rootNamespace": "",
-    "references": [
-        "GUID:914d529ceeb574d66adfc6fca4d9372d"
-    ],
+    "name": "World",
+    "rootNamespace": "ProjectRise",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -1,12 +1,12 @@
 {
-    "name": "Tests",
+    "name": "Test",
     "rootNamespace": "ProjectRise",
     "references": [
         "GUID:27619889b8ba8c24980f49ee34dbb44a",
         "GUID:0acc523941302664db1f4e527237feb3",
         "GUID:de0a929804e324367b92be5e1fc3c3ce",
-        "GUID:8b7e8aa23731d4fd08648d9717e22e1e",
-        "GUID:50a1b8cf9d4f3443b9807937db5866f9"
+        "GUID:50a1b8cf9d4f3443b9807937db5866f9",
+        "GUID:cd75d3fda893849cb96f483bf0c57ce3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
