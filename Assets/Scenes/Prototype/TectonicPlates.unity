@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   update: 1
-  lacunarity: 0.02
+  lacunarity: 0.01
   xOffset: 0
   zOffset: 0
   tileSize: 1
