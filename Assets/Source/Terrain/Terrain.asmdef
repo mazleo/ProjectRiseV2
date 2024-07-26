@@ -1,0 +1,17 @@
+{
+    "name": "Terrain",
+    "rootNamespace": "ProjectRise",
+    "references": [
+        "GUID:cd75d3fda893849cb96f483bf0c57ce3",
+        "GUID:50a1b8cf9d4f3443b9807937db5866f9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

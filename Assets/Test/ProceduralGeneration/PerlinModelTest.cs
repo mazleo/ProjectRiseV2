@@ -13,12 +13,12 @@ namespace ProjectRise.Test.ProceduralGeneration
         private const float DefaultPersistence = 1F;
         private const float DefaultXOffset = 0;
         private const float DefaultZOffset = 0;
-        
+
         [Test]
         public void PerlinModelBuilder_DefaultValues()
         {
             PerlinModel model = PerlinModel.GetBuilder().Build();
-            
+
             Assert.That(model.Lacunarity, Is.EqualTo(DefaultLacunarity));
             Assert.That(model.Persistence, Is.EqualTo(DefaultPersistence));
             Assert.That(model.XOffset, Is.EqualTo(DefaultXOffset));
@@ -33,13 +33,14 @@ namespace ProjectRise.Test.ProceduralGeneration
             float expectedXOffset = 9992;
             float expectedZOffset = 6348;
 
-            PerlinModel model = PerlinModel.GetBuilder()
+            PerlinModel model = PerlinModel
+                .GetBuilder()
                 .Lacunarity(expectedLacunarity)
                 .Persistence(expectedPersistence)
                 .XOffset(expectedXOffset)
                 .ZOffset(expectedZOffset)
                 .Build();
-            
+
             Assert.That(model.Lacunarity, Is.EqualTo(expectedLacunarity));
             Assert.That(model.Persistence, Is.EqualTo(expectedPersistence));
             Assert.That(model.XOffset, Is.EqualTo(expectedXOffset));
