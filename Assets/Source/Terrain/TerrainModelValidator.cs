@@ -33,6 +33,12 @@ namespace ProjectRise.Terrain
                 throw new ArgumentException("Surface height model cannot be null.");
         }
 
+        internal static void ThrowNullGameWorldModel(GameWorldModel model)
+        {
+            if (model == null)
+                throw new ArgumentException("Game world model cannot be null.");
+        }
+
         internal static void ThrowInvalidTileSize(
             float providedTileSize,
             int horizontalTiles,

@@ -122,5 +122,11 @@ namespace ProjectRise.Test.Terrain
                         .TileSize(0.0012345F)
             );
         }
+
+        [Test]
+        public void TerrainModel_InvalidGameWorldModel_Throws()
+        {
+            Assert.Throws<ArgumentException>(() => TerrainModel.GetBuilder(null));
+        }
     }
 }

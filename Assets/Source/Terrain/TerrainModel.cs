@@ -11,6 +11,7 @@ namespace ProjectRise.Terrain
     {
         internal static Builder GetBuilder(GameWorldModel gameWorldModel)
         {
+            TerrainModelValidator.ThrowNullGameWorldModel(gameWorldModel);
             return new Builder(gameWorldModel);
         }
 
