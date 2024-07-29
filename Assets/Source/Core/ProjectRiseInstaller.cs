@@ -1,13 +1,17 @@
 using ProjectRise.Debug.External;
+using ProjectRise.World.External;
 using Zenject;
 
-namespace Source.Core
+namespace ProjectRise.Core
 {
     // Core installer for the game.
-    public class PRApplicationInstaller : MonoInstaller
+    public class ProjectRiseInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
+            Container.Bind<GameWorldModel>().FromNew().AsSingle();
+
+            // Game Systems
             Container
                 .Bind<DebugSystem>()
                 .FromSubContainerResolve()

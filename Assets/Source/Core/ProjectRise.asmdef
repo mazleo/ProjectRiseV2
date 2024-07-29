@@ -3,7 +3,8 @@
     "rootNamespace": "ProjectRise",
     "references": [
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:de0a929804e324367b92be5e1fc3c3ce"
+        "GUID:de0a929804e324367b92be5e1fc3c3ce",
+        "GUID:4d9d600df77564f019f1db7b797c9337"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
