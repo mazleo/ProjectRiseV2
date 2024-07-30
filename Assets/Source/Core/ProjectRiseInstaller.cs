@@ -1,4 +1,5 @@
 using ProjectRise.Debug.External;
+using ProjectRise.Terrain.External;
 using ProjectRise.World.External;
 using Zenject;
 
@@ -16,6 +17,12 @@ namespace ProjectRise.Core
                 .Bind<DebugSystem>()
                 .FromSubContainerResolve()
                 .ByInstaller<DebugSystemInstaller>()
+                .AsCached();
+            // Terrain System
+            Container
+                .Bind<TerrainSystem>()
+                .FromSubContainerResolve()
+                .ByInstaller<TerrainSystemInstaller>()
                 .AsCached();
         }
     }
