@@ -1,7 +1,4 @@
 namespace ProjectRise.Terrain.Transformer.TectonicPlate
 {
-    internal class TectonicPlateModel
-    {
-        
-    }
+    internal class TectonicPlateModel { }
 }

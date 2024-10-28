@@ -7,7 +7,8 @@ namespace ProjectRise.Terrain.Transformer.TectonicPlate.Dev
         internal static Mesh GenerateMesh(TerrainModel terrainModel)
         {
             float meshWidth = 0.6F;
-            float meshHeight = ((float) terrainModel.VerticalTiles / terrainModel.HorizontalTiles) * meshWidth;
+            float meshHeight =
+                ((float)terrainModel.VerticalTiles / terrainModel.HorizontalTiles) * meshWidth;
             float xOffset = meshWidth / 2;
             float yOffset = meshHeight / 2;
             Mesh mesh = new Mesh();
@@ -16,7 +17,7 @@ namespace ProjectRise.Terrain.Transformer.TectonicPlate.Dev
             Vector3 topLeft = new Vector3(-xOffset, yOffset, 0);
             Vector3 topRight = new Vector3(xOffset, yOffset, 0);
             Vector3[] vertices = new[] { bottomLeft, bottomRight, topLeft, topRight };
-            int[] triangles = new[] {0, 2, 3, 0, 3, 1};
+            int[] triangles = new[] { 0, 2, 3, 0, 3, 1 };
             Vector2 bottomLeftUV = new Vector2(0, 0);
             Vector2 bottomRightUV = new Vector2(0, 1);
             Vector2 topLeftUV = new Vector2(1, 0);

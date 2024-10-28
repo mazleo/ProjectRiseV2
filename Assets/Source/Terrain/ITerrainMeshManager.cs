@@ -1,3 +1,4 @@
+using ProjectRise.World.External;
 using UnityEngine;
 
 namespace ProjectRise.Terrain
@@ -8,12 +9,6 @@ namespace ProjectRise.Terrain
     /// <typeparam name="TA">Arguments required to generate a mesh.</typeparam>
     internal interface ITerrainMeshManager<TA>
     {
-        /// <summary>
-        /// Initializes the manager.
-        /// </summary>
-        /// <param name="terrainModel">The terrain model.</param>
-        internal void Initialize(TerrainModel terrainModel);
-
         /// <summary>
         /// Provides the unity mesh. Creates and caches it if it doesn't
         /// exist already.

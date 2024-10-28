@@ -1,12 +1,7 @@
 {
-    "name": "Scenes",
-    "rootNamespace": "",
-    "references": [
-        "GUID:50a1b8cf9d4f3443b9807937db5866f9",
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:a2f2239355369ba4fb6909aeaa41def5",
-        "GUID:f082a8af9012b458e81f58198dc3e160"
-    ],
+    "name": "Utils",
+    "rootNamespace": "ProjectRise",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

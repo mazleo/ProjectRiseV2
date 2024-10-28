@@ -12,8 +12,8 @@ namespace ProjectRise.Terrain
         /// <summary>
         /// Generates the terrain mesh.
         /// </summary>
-        /// <param name="model">The model of the terrain.</param>
+        /// <param name="mesh">Mesh object to reuse if any.</param>
         /// <returns>The unity mesh.</returns>
-        internal Mesh Generate(TerrainModel model);
+        internal Mesh[] Generate(Mesh mesh);
     }
 }

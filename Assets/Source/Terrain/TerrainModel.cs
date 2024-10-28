@@ -15,7 +15,7 @@ namespace ProjectRise.Terrain
             return new Builder(gameWorldModel);
         }
 
-        internal const float DefaultTileSize = 1F;
+        internal const float DefaultTileSize = 5F;
         internal const int DefaultHorizontalTiles = (int)(
             GameWorldModel.DefaultWidth / DefaultTileSize
         );

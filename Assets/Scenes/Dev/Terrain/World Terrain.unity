@@ -149,13 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Dimensions: {x: 1, y: 1, z: 1}
+  m_ScaleWithWindow: 1
   m_IsUniformScale: 0
-  m_OutputConfiguration: {fileID: 11400000, guid: 869558972ed6f44e79165823a8d5ef19,
+  m_OutputConfiguration: {fileID: 11400000, guid: 0213e797bce384c6ca954f5fdef2d174,
     type: 2}
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   OpenWindowOnLoad: 1
+  m_TargetDisplay: 0
   m_ShowVolumeCameraEventsFoldout: 1
   OnWindowEvent:
     m_PersistentCalls:
@@ -172,7 +174,7 @@ Transform:
   m_GameObject: {fileID: 1438020}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -308,11 +310,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 737108013}
-  - component: {fileID: 737108012}
   - component: {fileID: 737108011}
   - component: {fileID: 737108010}
+  - component: {fileID: 737108014}
   m_Layer: 0
-  m_Name: TectonicPlateInterface
+  m_Name: WorldTerrainInterface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +343,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: cff0ea92fb76d49a1aeab1041a790b80, type: 3}
+  - {fileID: -876546973899608171, guid: 431bee8fea8764c7c91d8acf2fffaaa8, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -371,18 +373,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737108009}
   m_Mesh: {fileID: 0}
---- !u!114 &737108012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737108009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c378b408bf244d57a8a9c29d3219116e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &737108013
 Transform:
   m_ObjectHideFlags: 0
@@ -398,6 +388,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &737108014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737108009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfde3610b3a49e99f707b5bc967d152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &866088568
 GameObject:
   m_ObjectHideFlags: 0
