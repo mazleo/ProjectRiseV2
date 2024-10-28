@@ -46,13 +46,8 @@ namespace ProjectRise.Terrain
                 if (rightColumn >= xTiles)
                     continue;
                 int rightBaseHeightIndex = (row * xTiles) + rightColumn;
-                float baseHeight =
-                    Mathf.Floor(_terrainModel.BaseHeightModel[b] / volumetricTileSize)
-                    * volumetricTileSize;
-                float rightBaseHeight =
-                    Mathf.Floor(
-                        _terrainModel.BaseHeightModel[rightBaseHeightIndex] / volumetricTileSize
-                    ) * volumetricTileSize;
+                float baseHeight = GetBaseHeight(b);
+                float rightBaseHeight = GetBaseHeight(rightBaseHeightIndex);
                 if (rightBaseHeight > baseHeight)
                 {
                     float x = rightColumn * volumetricTileSize - xOffset;
@@ -89,13 +84,8 @@ namespace ProjectRise.Terrain
                 if (rightColumn >= xTiles)
                     continue;
                 int rightBaseHeightIndex = (row * xTiles) + rightColumn;
-                float baseHeight =
-                    Mathf.Floor(_terrainModel.BaseHeightModel[b] / volumetricTileSize)
-                    * volumetricTileSize;
-                float rightBaseHeight =
-                    Mathf.Floor(
-                        _terrainModel.BaseHeightModel[rightBaseHeightIndex] / volumetricTileSize
-                    ) * volumetricTileSize;
+                float baseHeight = GetBaseHeight(b);
+                float rightBaseHeight = GetBaseHeight(rightBaseHeightIndex);
                 if (baseHeight > rightBaseHeight)
                 {
                     float x = rightColumn * volumetricTileSize - xOffset;
@@ -121,7 +111,6 @@ namespace ProjectRise.Terrain
             float xOffset = _gameWorldModel.VolumeCameraDimensions.Value.x / 2;
             float zOffset = _gameWorldModel.VolumeCameraDimensions.Value.z / 2;
             int xTiles = (int)(_gameWorldModel.Width / _terrainModel.TileSize);
-            int yTiles = (int)(_gameWorldModel.Height / _terrainModel.TileSize);
             int zTiles = (int)(_gameWorldModel.Length / _terrainModel.TileSize);
             float volumetricTileSize =
                 (_terrainModel.TileSize * _gameWorldModel.VolumeCameraDimensions.Value.x)
@@ -134,19 +123,13 @@ namespace ProjectRise.Terrain
                 if (aboveRow >= zTiles)
                     break;
                 int aboveBaseHeightIndex = (aboveRow * xTiles) + column;
-                float baseHeight =
-                    Mathf.Floor(_terrainModel.BaseHeightModel[b] / volumetricTileSize)
-                    * volumetricTileSize;
-                float aboveBaseHeight =
-                    Mathf.Floor(
-                        _terrainModel.BaseHeightModel[aboveBaseHeightIndex] / volumetricTileSize
-                    ) * volumetricTileSize;
+                float baseHeight = GetBaseHeight(b);
+                float aboveBaseHeight = GetBaseHeight(aboveBaseHeightIndex);
                 if (baseHeight > aboveBaseHeight)
                 {
                     float x = (column + 1) * volumetricTileSize - xOffset;
                     float y = aboveBaseHeight;
                     float z = (row + 1) * volumetricTileSize - zOffset;
-                    int levels = (int)((baseHeight - aboveBaseHeight) / volumetricTileSize);
                     Vector3[] northFaceVertices = GenerateNorthFace(
                         new Vector3(x, y, z),
                         volumetricTileSize,
@@ -179,13 +162,8 @@ namespace ProjectRise.Terrain
                 if (aboveRow >= zTiles)
                     break;
                 int aboveBaseHeightIndex = (aboveRow * xTiles) + column;
-                float baseHeight =
-                    Mathf.Floor(_terrainModel.BaseHeightModel[b] / volumetricTileSize)
-                    * volumetricTileSize;
-                float aboveBaseHeight =
-                    Mathf.Floor(
-                        _terrainModel.BaseHeightModel[aboveBaseHeightIndex] / volumetricTileSize
-                    ) * volumetricTileSize;
+                float baseHeight = GetBaseHeight(b);
+                float aboveBaseHeight = GetBaseHeight(aboveBaseHeightIndex);
                 if (aboveBaseHeight > baseHeight)
                 {
                     float x = column * volumetricTileSize - xOffset;
@@ -221,9 +199,7 @@ namespace ProjectRise.Terrain
                 int row = Mathf.FloorToInt(i / xTiles);
                 int column = i % xTiles;
                 float x = column * volumetricTileSize - xOffset;
-                float y =
-                    Mathf.Floor(_terrainModel.BaseHeightModel[i] / volumetricTileSize)
-                    * volumetricTileSize;
+                float y = GetBaseHeight(i);
                 float z = row * volumetricTileSize - zOffset;
                 Vector3 originVector = new Vector3(x, y, z);
                 Vector3[] topFaceVertices = GenerateTopFace(originVector, volumetricTileSize);
@@ -315,6 +291,26 @@ namespace ProjectRise.Terrain
             vertices[4] = new Vector3(originVertex.x - tileSize, highY, originVertex.z);
             vertices[5] = new Vector3(originVertex.x - tileSize, originVertex.y, originVertex.z);
             return vertices;
+        }
+
+        private float GetBaseHeight(int b)
+        {
+            float volumetricTileSize =
+                (_terrainModel.TileSize * _gameWorldModel.VolumeCameraDimensions.Value.x)
+                / _gameWorldModel.Width;
+            if (volumetricTileSize >= 1)
+                return Mathf.Floor(_terrainModel.BaseHeightModel[b] / volumetricTileSize)
+                    * volumetricTileSize;
+            else
+            {
+                float numTiles = Mathf.Floor(
+                    (
+                        _terrainModel.BaseHeightModel[b]
+                        * _gameWorldModel.VolumeCameraDimensions.Value.x
+                    ) / volumetricTileSize
+                );
+                return numTiles * volumetricTileSize;
+            }
         }
     }
 }
