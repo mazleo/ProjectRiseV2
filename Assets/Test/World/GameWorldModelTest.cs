@@ -26,18 +26,21 @@ namespace ProjectRise.Test.World
             float expectedWidth = 950F;
             float expectedLength = 670F;
             float expectedHeight = 425F;
+            float expectedLandformHeight = 120F;
             float expectedWaterLevel = 100F;
 
             GameWorldModel gameWorldModel = new GameWorldModel(
                 expectedWidth,
                 expectedLength,
                 expectedHeight,
+                expectedLandformHeight,
                 expectedWaterLevel
             );
 
             Assert.That(gameWorldModel.Width, Is.EqualTo(expectedWidth));
             Assert.That(gameWorldModel.Length, Is.EqualTo(expectedLength));
             Assert.That(gameWorldModel.Height, Is.EqualTo(expectedHeight));
+            Assert.That(gameWorldModel.LandformHeight, Is.EqualTo(expectedLandformHeight));
             Assert.That(gameWorldModel.WaterLevel, Is.EqualTo(expectedWaterLevel));
         }
 
@@ -49,8 +52,9 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         0, /*length=*/
                         234F, /*height=*/
-                        384F, /*waterLevel=*/
-                        200F
+                        384F,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/200F
                     )
             );
             Assert.Throws<ArgumentException>(
@@ -58,7 +62,8 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         -5F, /*length=*/
                         234F, /*height=*/
-                        384F, /*waterLevel=*/
+                        384F,
+                        /*landformHeight=*/250F, /*waterLevel=*/
                         200F
                     )
             );
@@ -68,7 +73,9 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         156F, /*length=*/
                         0, /*height=*/
-                        384F, /*waterLevel=*/
+                        384F,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/
                         200F
                     )
             );
@@ -77,7 +84,9 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         156F, /*length=*/
                         -23F, /*height=*/
-                        384F, /*waterLevel=*/
+                        384F,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/
                         200F
                     )
             );
@@ -87,7 +96,9 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         156F, /*length=*/
                         100F, /*height=*/
-                        0, /*waterLevel=*/
+                        0,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/
                         200F
                     )
             );
@@ -96,7 +107,9 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         156F, /*length=*/
                         100F, /*height=*/
-                        -75F, /*waterLevel=*/
+                        -75F,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/
                         200F
                     )
             );
@@ -106,7 +119,32 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         156F, /*length=*/
                         100F, /*height=*/
-                        24F, /*waterLevel=*/
+                        24F,
+                        /*landformHeight=*/0,
+                        /*waterLevel=*/
+                        200F
+                    )
+            );
+            Assert.Throws<ArgumentException>(
+                () =>
+                    new GameWorldModel( /*width=*/
+                        156F, /*length=*/
+                        100F, /*height=*/
+                        24F,
+                        /*landformHeight=*/-176F,
+                        /*waterLevel=*/
+                        200F
+                    )
+            );
+
+            Assert.Throws<ArgumentException>(
+                () =>
+                    new GameWorldModel( /*width=*/
+                        156F, /*length=*/
+                        100F, /*height=*/
+                        24F,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/
                         0
                     )
             );
@@ -115,7 +153,9 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         156F, /*length=*/
                         100F, /*height=*/
-                        24F, /*waterLevel=*/
+                        24F,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/
                         -1F
                     )
             );
@@ -125,7 +165,9 @@ namespace ProjectRise.Test.World
                     new GameWorldModel( /*width=*/
                         156F, /*length=*/
                         100F, /*height=*/
-                        24F, /*waterLevel=*/
+                        24F,
+                        /*landformHeight=*/250F,
+                        /*waterLevel=*/
                         200F
                     )
             );

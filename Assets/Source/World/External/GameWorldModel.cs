@@ -12,14 +12,16 @@ namespace ProjectRise.World.External
     {
         public const float DefaultWidth = 500F;
         public const float DefaultLength = 500F;
-        public const float DefaultHeight = 350F;
-        public const float DefaultWaterLevel = 200F;
+        public const float DefaultHeight = 500F;
+        public const float DefaultLandformHeight = 350F;
+        public const float DefaultWaterLevel = 315F;
         public Vector3 DefaultVolumeCameraDimensions = new Vector3(0.3F, 0.3F, 0.3F);
         public Vector3 DefaultVolumeCameraPosition = new Vector3(0, 0.15F, 0);
 
         public float Width;
         public float Length;
         public float Height;
+        public float LandformHeight;
         public float WaterLevel;
         public Vector3? VolumeCameraDimensions;
         public Vector3? VolumeCameraPosition;
@@ -28,6 +30,7 @@ namespace ProjectRise.World.External
             float width = DefaultWidth,
             float length = DefaultLength,
             float height = DefaultHeight,
+            float landformHeight = DefaultLandformHeight,
             float waterLevel = DefaultWaterLevel,
             Vector3? volumeCameraDimensions = null,
             Vector3? volumeCameraPosition = null
@@ -36,6 +39,7 @@ namespace ProjectRise.World.External
             Width = width;
             Length = length;
             Height = height;
+            LandformHeight = landformHeight;
             WaterLevel = waterLevel;
             VolumeCameraDimensions =
                 volumeCameraDimensions == null
@@ -47,6 +51,7 @@ namespace ProjectRise.World.External
                 Width,
                 Length,
                 Height,
+                LandformHeight,
                 WaterLevel,
                 VolumeCameraDimensions,
                 VolumeCameraPosition
@@ -57,6 +62,7 @@ namespace ProjectRise.World.External
             float width,
             float length,
             float height,
+            float landformHeight,
             float waterLevel,
             Vector3? volumeCameraDimensions,
             Vector3? volumeCameraPosition
@@ -66,6 +72,7 @@ namespace ProjectRise.World.External
                 IsNonPositive(width)
                 || IsNonPositive(length)
                 || IsNonPositive(height)
+                || IsNonPositive(landformHeight)
                 || IsNonPositive(waterLevel)
                 || !IsVolumeCameraAttrValid(volumeCameraDimensions)
                 || !IsVolumeCameraAttrValid(volumeCameraPosition)

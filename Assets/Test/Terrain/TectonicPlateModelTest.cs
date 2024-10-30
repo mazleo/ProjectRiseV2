@@ -30,8 +30,11 @@ namespace ProjectRise.Test.Terrain
         [Test]
         public void Constructor_ValidInputs()
         {
-            TectonicPlateModel tectonicPlateModel = new TectonicPlateModel(_perlinModel, _terrainModel);
-            
+            TectonicPlateModel tectonicPlateModel = new TectonicPlateModel(
+                _perlinModel,
+                _terrainModel
+            );
+
             Assert.That(tectonicPlateModel.Model, Is.EqualTo(_perlinModel));
             Assert.That(tectonicPlateModel.TerrainModel, Is.EqualTo(_terrainModel));
         }
@@ -42,7 +45,13 @@ namespace ProjectRise.Test.Terrain
         [Test]
         public void Constructor_NullPerlinModel()
         {
-            Assert.Throws<ArgumentException>(() => new TectonicPlateModel( /*model=*/null, _terrainModel));
+            Assert.Throws<ArgumentException>(
+                () =>
+                    new TectonicPlateModel( /*model=*/
+                        null,
+                        _terrainModel
+                    )
+            );
         }
 
         /// <summary>
@@ -51,7 +60,13 @@ namespace ProjectRise.Test.Terrain
         [Test]
         public void Constructor_NullTerrainModel()
         {
-            Assert.Throws<ArgumentException>(() => new TectonicPlateModel(_perlinModel, /*terrainModel=*/null));
+            Assert.Throws<ArgumentException>(
+                () =>
+                    new TectonicPlateModel(
+                        _perlinModel, /*terrainModel=*/
+                        null
+                    )
+            );
         }
 
         /// <summary>
@@ -60,8 +75,11 @@ namespace ProjectRise.Test.Terrain
         [Test]
         public void Generate()
         {
-            TectonicPlateModel tectonicPlateModel = new TectonicPlateModel(_perlinModel, _terrainModel);
-            
+            TectonicPlateModel tectonicPlateModel = new TectonicPlateModel(
+                _perlinModel,
+                _terrainModel
+            );
+
             Assert.That(tectonicPlateModel.Plates.Length, Is.GreaterThan(0));
             AssertValidPlateMap(tectonicPlateModel.PlateMap, tectonicPlateModel.Plates);
         }

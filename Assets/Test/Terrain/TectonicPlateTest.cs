@@ -18,7 +18,7 @@ namespace ProjectRise.Test.Terrain
             TectonicPlate tectonicPlate1 = new TectonicPlate(0, PlateType.Continental);
             TectonicPlate tectonicPlate2 = new TectonicPlate(25, PlateType.Oceanic);
             TectonicPlate tectonicPlate3 = new TectonicPlate(999999, PlateType.Continental);
-            
+
             Assert.That(tectonicPlate1.ID, Is.EqualTo(0));
             Assert.That(tectonicPlate1.Type, Is.EqualTo(PlateType.Continental));
             Assert.That(tectonicPlate2.ID, Is.EqualTo(25));
