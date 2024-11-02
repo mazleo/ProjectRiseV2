@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/World.unity
     guid: 1188ad3dd016b44f2b3fc9500a79991b
-  - enabled: 1
-    path: Assets/Scenes/Dev/Terrain/WorldTerrain.unity
+  - enabled: 0
+    path: Assets/Source/WorldTerrain.unity
     guid: 65893e7f7e1244e40960a46ac97b4bfb
+  - enabled: 0
+    path: Assets/Scenes/Dev/Terrain/Land Formation Interface.unity
+    guid: 7799e0b24e7ac4b0fa058d274eab0267
+  - enabled: 1
+    path: Assets/Scenes/Dev/Terrain/Alpine Formation Interface.unity
+    guid: 19b7631333f5d4a8893e692cea4e34cf
   m_configObjects:
     UnityEditor.XR.VisionOS.VisionOSSettings: {fileID: 11400000, guid: b059cec92b5f642a3be09d606ea569c4,
       type: 2}
