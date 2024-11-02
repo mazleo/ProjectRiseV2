@@ -78,9 +78,9 @@ namespace ProjectRise.Terrain.Transformer.Landform
 
         private void PopulateHeightModel()
         {
-            float waterLevelRatio = GameWorldModel.WaterLevel / GameWorldModel.LandformHeight;
-            float landformRatio = 1F - waterLevelRatio;
-            float continentalStepSize = landformRatio / MaxDistance;
+            float waterLevelRatio = GameWorldModel.WaterLevel / GameWorldModel.Height;
+            float landformRatio = GameWorldModel.LandformHeight / GameWorldModel.Height;
+            float continentalStepSize = (landformRatio - waterLevelRatio) / MaxDistance;
             float oceanicStepSize = waterLevelRatio / Mathf.Abs(MinDistance);
             for (int h = 0; h < HeightModel.Length; h++)
             {
@@ -88,10 +88,10 @@ namespace ProjectRise.Terrain.Transformer.Landform
                 int plateId = TectonicPlateModel.PlateMap[h];
                 PlateType plateType = TectonicPlateModel.Plates[plateId].Type;
                 if (plateType == PlateType.Continental)
-                    height = (DistanceModel[h] * continentalStepSize) + waterLevelRatio;
+                    height = (DistanceModel[h] * continentalStepSize) + landformRatio;
                 else
                     height =
-                        (waterLevelRatio - (Mathf.Abs(MinDistance)) * oceanicStepSize)
+                        (landformRatio - (Mathf.Abs(MinDistance)) * oceanicStepSize)
                         + ((DistanceModel[h] + Mathf.Abs(MinDistance)) * oceanicStepSize);
                 HeightModel[h] = height;
             }

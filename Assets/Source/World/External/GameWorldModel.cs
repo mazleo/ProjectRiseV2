@@ -13,8 +13,8 @@ namespace ProjectRise.World.External
         public const float DefaultWidth = 500F;
         public const float DefaultLength = 500F;
         public const float DefaultHeight = 500F;
-        public const float DefaultLandformHeight = 350F;
-        public const float DefaultWaterLevel = 315F;
+        public const float DefaultLandformHeight = 400F;
+        public const float DefaultWaterLevel = 350F;
         public Vector3 DefaultVolumeCameraDimensions = new Vector3(0.3F, 0.3F, 0.3F);
         public Vector3 DefaultVolumeCameraPosition = new Vector3(0, 0.15F, 0);
 
